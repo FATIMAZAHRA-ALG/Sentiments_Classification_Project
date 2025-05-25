@@ -31,8 +31,16 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
 }
+st.markdown("""
+<style>
+h1 {
+    color: #4B0082;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+}
 .stButton>button {
-    background-color: #6A5ACD;
+    background-color: #20B2AA;  /* turquoise */
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -41,11 +49,20 @@ h1 {
     transition: background-color 0.3s ease;
 }
 .stButton>button:hover {
-    background-color: #7B68EE;  /* couleur au survol */
+    background-color: #3CB371;  /* medium sea green */
 }
 .stButton>button:active {
-    background-color: #5D3FD3 !important;  /* couleur quand on clique */
+    background-color: #2E8B57 !important;  /* sea green (évite le rouge) */
 }
+.stTextArea>div>textarea {
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #6A5ACD;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+</style>
+""", unsafe_allow_html=True)
 
 .stTextArea>div>textarea {
     font-size: 18px;
