@@ -23,6 +23,7 @@ def load_model():
 
 model, tokenizer = load_model()
 
+# 🎨 Style harmonieux
 st.markdown("""
 <style>
 h1 {
@@ -31,14 +32,8 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
 }
-h1 {
-    color: #4B0082;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    margin-bottom: 30px;
-}
 .stButton>button {
-    background-color: #6A5ACD;  /* mauve */
+    background-color: #6A5ACD;
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -47,10 +42,10 @@ h1 {
     transition: background-color 0.3s ease;
 }
 .stButton>button:hover {
-    background-color: #C397D8;  /* lavande rose */
+    background-color: #C397D8;
 }
 .stButton>button:active {
-    background-color: #BA55D3 !important;  /* orchidée foncée */
+    background-color: #BA55D3 !important;
 }
 .stTextArea>div>textarea {
     font-size: 18px;
@@ -59,21 +54,25 @@ h1 {
     border: 2px solid #6A5ACD;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.stTextArea>div>textarea {
-    font-size: 18px;
-    padding: 12px;
+.result-box {
+    background-color: #F5F0FF;
+    border-left: 6px solid #6A5ACD;
+    padding: 15px;
+    margin-top: 20px;
     border-radius: 8px;
-    border: 2px solid #6A5ACD;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: #333;
 }
 </style>
 """, unsafe_allow_html=True)
 
+# 🔮 Titre et entrée
 st.title("💬 Analyse de sentiments ")
 
 st.markdown("<h3 style='font-size: 24px; color: #4B0082;'>Entrer un texte :</h3>", unsafe_allow_html=True)
 text = st.text_area("", height=150)
 
+# 🔎 Analyse du texte
 if st.button("Prédire le sentiment") and text:
     cleaned = clean_text(text)
     inputs = tokenizer(cleaned, return_tensors="pt", truncation=True, padding=True, max_length=256)
@@ -86,9 +85,8 @@ if st.button("Prédire le sentiment") and text:
 
     labels_map = {0: "Négatif 😞", 1: "Positif 😄"}
 
+    # 🎨 Affichage personnalisé
     if predicted_class == 1:
-        st.success(f"**Sentiment prédit :** {labels_map[predicted_class]}")
-        st.info(f"**Confiance :** {confidence:.2f}")
+        st.markdown(f"<div class='result-box'><strong>Sentiment prédit :</strong> {labels_map[predicted_class]}<br><strong>Confiance :</strong> {confidence:.2f}</div>", unsafe_allow_html=True)
     else:
-        st.error(f"**Sentiment prédit :** {labels_map[predicted_class]}")
-        st.warning(f"**Confiance :** {confidence:.2f}")
+        st.markdown(f"<div class='result-box' style='border-left-color:#D8BFD8;'><strong>Sentiment prédit :</strong> {labels_map[predicted_class]}<br><strong>Confiance :</strong> {confidence:.2f}</div>", unsafe_allow_html=True)
