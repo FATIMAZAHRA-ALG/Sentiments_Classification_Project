@@ -41,12 +41,7 @@ h1 {
     border: none;
     transition: background-color 0.3s ease;
 }
-.stButton>button:hover {
-    background-color: #C397D8;
-}
-.stButton>button:active {
-    background-color: #BA55D3 !important;
-}
+
 .stTextArea>div>textarea {
     font-size: 18px;
     padding: 12px;
@@ -90,11 +85,11 @@ if st.button("Prédire le sentiment") and text:
 
     if predicted_class == 1:
         st.markdown(
-            f"<div class='result-box positive'>💚 Sentiment prédit : {labels_map[predicted_class]}<br>Confiance : {confidence:.2f}</div>",
+            f"<div class='result-box positive'> Sentiment prédit : {labels_map[predicted_class]}<br>Confiance : {confidence:.2f}</div>",
             unsafe_allow_html=True
         )
     else:
         st.markdown(
-            f"<div class='result-box negative'>💔 Sentiment prédit : {labels_map[predicted_class]}<br>Confiance : {confidence:.2f}</div>",
+            f"<div class='result-box negative'> Sentiment prédit : {labels_map[predicted_class]}<br>Confiance : {confidence:.2f}</div>",
             unsafe_allow_html=True
         )
