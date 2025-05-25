@@ -50,7 +50,7 @@ h1 {
 
 st.title("💬 Analyse de sentiments ")
 
-text = st.text_area("Entrer un texte :", height=150)
+text = st.text_area("Entrer un texte :", height=50)
 
 if st.button("Prédire le sentiment") and text:
     cleaned = clean_text(text)
