@@ -38,7 +38,7 @@ h1 {
     margin-bottom: 30px;
 }
 .stButton>button {
-    background-color: #20B2AA;  /* turquoise */
+    background-color: #6A5ACD;  /* mauve */
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -47,10 +47,10 @@ h1 {
     transition: background-color 0.3s ease;
 }
 .stButton>button:hover {
-    background-color: #3CB371;  /* medium sea green */
+    background-color: #C397D8;  /* lavande rose */
 }
 .stButton>button:active {
-    background-color: #2E8B57 !important;  /* sea green (évite le rouge) */
+    background-color: #BA55D3 !important;  /* orchidée foncée */
 }
 .stTextArea>div>textarea {
     font-size: 18px;
@@ -59,7 +59,6 @@ h1 {
     border: 2px solid #6A5ACD;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .stTextArea>div>textarea {
     font-size: 18px;
     padding: 12px;
