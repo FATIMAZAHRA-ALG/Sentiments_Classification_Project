@@ -15,7 +15,7 @@ def clean_text(t):
 
 @st.cache_resource
 def load_model():
-    model_dir = "FATIMA-ZAHRA-Z/my_imdb_model"
+    model_dir = "FATIMA-ZAHRA-Z/my_model"
     model = AutoModelForSequenceClassification.from_pretrained(model_dir)
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
     model.eval()
