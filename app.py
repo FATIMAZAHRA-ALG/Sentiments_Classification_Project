@@ -31,8 +31,6 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
 }
-st.markdown("""
-<style>
 h1 {
     color: #4B0082;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,8 +59,6 @@ h1 {
     border: 2px solid #6A5ACD;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-</style>
-""", unsafe_allow_html=True)
 
 .stTextArea>div>textarea {
     font-size: 18px;
