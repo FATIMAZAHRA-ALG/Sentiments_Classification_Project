@@ -23,7 +23,7 @@ def load_model():
 
 model, tokenizer = load_model()
 
-# 🎨 Style harmonieux
+# 🎨 Style CSS personnalisé
 st.markdown("""
 <style>
 h1 {
@@ -55,24 +55,27 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .result-box {
-    background-color: #F5F0FF;
-    border-left: 6px solid #6A5ACD;
     padding: 15px;
     margin-top: 20px;
     border-radius: 8px;
     font-size: 18px;
-    color: #333;
+    color: white;
+    font-weight: bold;
+}
+.positive {
+    background-color: #2E8B57;  /* Vert */
+}
+.negative {
+    background-color: #B22222;  /* Rouge */
 }
 </style>
 """, unsafe_allow_html=True)
 
-# 🔮 Titre et entrée
-st.title("💬 Analyse de sentiments ")
+st.title("💬 Analyse de sentiments")
 
 st.markdown("<h3 style='font-size: 24px; color: #4B0082;'>Entrer un texte :</h3>", unsafe_allow_html=True)
 text = st.text_area("", height=150)
 
-# 🔎 Analyse du texte
 if st.button("Prédire le sentiment") and text:
     cleaned = clean_text(text)
     inputs = tokenizer(cleaned, return_tensors="pt", truncation=True, padding=True, max_length=256)
@@ -85,8 +88,13 @@ if st.button("Prédire le sentiment") and text:
 
     labels_map = {0: "Négatif 😞", 1: "Positif 😄"}
 
-    # 🎨 Affichage personnalisé
     if predicted_class == 1:
-        st.markdown(f"<div class='result-box'><strong>Sentiment prédit :</strong> {labels_map[predicted_class]}<br><strong>Confiance :</strong> {confidence:.2f}</div>", unsafe_allow_html=True)
+        st.markdown(
+            f"<div class='result-box positive'>💚 Sentiment prédit : {labels_map[predicted_class]}<br>Confiance : {confidence:.2f}</div>",
+            unsafe_allow_html=True
+        )
     else:
-        st.markdown(f"<div class='result-box' style='border-left-color:#D8BFD8;'><strong>Sentiment prédit :</strong> {labels_map[predicted_class]}<br><strong>Confiance :</strong> {confidence:.2f}</div>", unsafe_allow_html=True)
+        st.markdown(
+            f"<div class='result-box negative'>💔 Sentiment prédit : {labels_map[predicted_class]}<br>Confiance : {confidence:.2f}</div>",
+            unsafe_allow_html=True
+        )
