@@ -37,7 +37,16 @@ h1 {
     font-weight: bold;
     border-radius: 8px;
     padding: 10px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
 }
+.stButton>button:hover {
+    background-color: #7B68EE;  /* couleur au survol */
+}
+.stButton>button:active {
+    background-color: #5D3FD3 !important;  /* couleur quand on clique */
+}
+
 .stTextArea>div>textarea {
     font-size: 18px;
     padding: 12px;
