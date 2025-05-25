@@ -1,11 +1,11 @@
 import streamlit as st
+import os
+import zipfile
+import gdown
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
 from torch.nn import functional as F
 import re
-import os
-import gdown
-import zipfile
 
 def clean_text(t):
     t = re.sub(r'<br\s*/?>', ' ', t)
@@ -16,16 +16,19 @@ def clean_text(t):
 @st.cache_resource
 def load_model():
     model_dir = "my_imdb_model"
-    google_drive_id = "1rl3_EmhWprNxRt3jHUMoiBL1cNqhbhwg"  # Ton ID Google Drive ici
+    zip_path = "model.zip"
+    google_drive_id = "1_yTVgWec_BrzOOFPMunKgqL8Q_Ap4CHc"  # <-- ton nouveau ID
 
-    # Télécharger et décompresser le modèle si ce n’est pas déjà fait
     if not os.path.exists(model_dir):
-        zip_path = "model.zip"
         url = f"https://drive.google.com/uc?id={google_drive_id}"
         gdown.download(url, zip_path, quiet=False)
+
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(model_dir)
         os.remove(zip_path)
+
+    # Affiche contenu pour debug dans les logs Streamlit
+    print("Contenu du dossier modèle:", os.listdir(model_dir))
 
     model = AutoModelForSequenceClassification.from_pretrained(model_dir)
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
@@ -34,7 +37,6 @@ def load_model():
 
 model, tokenizer = load_model()
 
-# Style CSS pour l’app
 st.markdown("""
 <style>
 h1 {
