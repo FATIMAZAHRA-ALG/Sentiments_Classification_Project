@@ -15,23 +15,7 @@ def clean_text(t):
 
 @st.cache_resource
 def load_model():
-    model_dir = "my_imdb_model"
-    zip_path = "model.zip"
-    google_drive_id = "1_yTVgWec_BrzOOFPMunKgqL8Q_Ap4CHc"  # <-- ton nouveau ID
-
-    if not os.path.exists(model_dir):
-        url = f"https://drive.google.com/uc?id={google_drive_id}"
-        gdown.download(url, zip_path, quiet=False)
-
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(model_dir)
-        os.remove(zip_path)
-        print("Contenu du dossier après extraction :", os.listdir(model_dir))
-        for root, dirs, files in os.walk(model_dir):
-          print(f"Dans {root} -> Dossiers: {dirs}, Fichiers: {files}")
-
-    
-
+    model_dir = "FATIMA-ZAHRA-Z/my_imdb_model"
     model = AutoModelForSequenceClassification.from_pretrained(model_dir)
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
     model.eval()
