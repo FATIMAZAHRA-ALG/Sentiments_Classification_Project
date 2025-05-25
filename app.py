@@ -26,9 +26,11 @@ def load_model():
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(model_dir)
         os.remove(zip_path)
+        print("Contenu du dossier après extraction :", os.listdir(model_dir))
+        for root, dirs, files in os.walk(model_dir):
+          print(f"Dans {root} -> Dossiers: {dirs}, Fichiers: {files}")
 
-    # Affiche contenu pour debug dans les logs Streamlit
-    print("Contenu du dossier modèle:", os.listdir(model_dir))
+    
 
     model = AutoModelForSequenceClassification.from_pretrained(model_dir)
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
