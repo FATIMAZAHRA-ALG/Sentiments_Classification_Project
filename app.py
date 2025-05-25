@@ -50,7 +50,8 @@ h1 {
 
 st.title("💬 Analyse de sentiments ")
 
-text = st.text_area("Entrer un texte :", height=150)
+st.markdown("<h3 style='font-size: 24px; color: #4B0082;'>Entrer un texte :</h3>", unsafe_allow_html=True)
+text = st.text_area("", height=150)
 
 if st.button("Prédire le sentiment") and text:
     cleaned = clean_text(text)
