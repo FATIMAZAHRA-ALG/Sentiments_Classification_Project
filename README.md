@@ -3,6 +3,12 @@
 
 Cette application web permet à un utilisateur de saisir un texte libre et d’obtenir en temps réel la **prédiction du sentiment (positif ou négatif)** associé à ce texte. Elle repose sur un modèle de classification fine-tuné sur des données multilingues (`IMDb` en anglais et `Allociné` en français).
 
+## 🎥 Présentation vidéo
+
+Vous pouvez regarder une démonstration de ce projet en vidéo ici :
+
+👉 [Voir la vidéo de présentation](Video/Explication.mp4)
+
 ## 🌐 Démo en ligne
 
 L’application est accessible ici 👉 [Tester l'application en ligne](https://sentiments-classification-project.streamlit.app/)
