@@ -11,7 +11,7 @@ Vous pouvez regarder une démonstration de ce projet en vidéo ici :
 
 ## 🌐 Démo en ligne
 
-L’application est accessible ici 👉 [Tester l'application en ligne](https://sentiments-classification-project.streamlit.app/)
+👉 [Tester l'application en ligne](https://sentiments-classification-project.streamlit.app/)
 
 
 ## Fonctionnalités
