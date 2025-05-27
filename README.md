@@ -29,7 +29,7 @@ Vous pouvez tester l'application ici :
 
 ##  Données utilisées
 
-- **IMDb** : avis de films en anglais
+- **IMDb** : critiques de films en anglais
 - **Allociné** : critiques de films en français
 
 Les deux jeux de données ont été nettoyés, fusionnés et rééchantillonnés pour équilibrer l'entraînement et la validation.
