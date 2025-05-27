@@ -7,7 +7,7 @@ Cette application web permet à un utilisateur de saisir un texte libre et d’o
 
 Vous pouvez regarder une démonstration de ce projet en vidéo ici :
 
-👉 [Voir la vidéo de présentation](Video/Explication.mp4)
+👉 [Voir la vidéo de présentation](Démonstration/Explication.mp4)
 
 ## 🌐 Démo en ligne
 
